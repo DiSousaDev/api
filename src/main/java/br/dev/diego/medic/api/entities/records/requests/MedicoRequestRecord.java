@@ -1,6 +1,7 @@
 package br.dev.diego.medic.api.entities.records.requests;
 
 import br.dev.diego.medic.api.entities.enums.Especialidade;
+import br.dev.diego.medic.api.entities.records.EnderecoRecord;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

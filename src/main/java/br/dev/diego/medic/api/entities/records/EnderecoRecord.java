@@ -1,5 +1,6 @@
-package br.dev.diego.medic.api.entities.records.requests;
+package br.dev.diego.medic.api.entities.records;
 
+import br.dev.diego.medic.api.entities.Endereco;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
@@ -17,4 +18,9 @@ public record EnderecoRecord(
         String uf,
         String complemento,
         String numero) {
+
+        public EnderecoRecord(Endereco entity) {
+                this(entity.getLogradouro(), entity.getBairro(), entity.getCep(), entity.getCidade(), entity.getUf(), entity.getComplemento(), entity.getNumero());
+        }
+
 }

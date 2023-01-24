@@ -1,6 +1,6 @@
 package br.dev.diego.medic.api.entities;
 
-import br.dev.diego.medic.api.entities.records.requests.EnderecoRecord;
+import br.dev.diego.medic.api.entities.records.EnderecoRecord;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
