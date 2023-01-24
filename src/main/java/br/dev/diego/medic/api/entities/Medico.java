@@ -2,6 +2,7 @@ package br.dev.diego.medic.api.entities;
 
 import br.dev.diego.medic.api.entities.enums.Especialidade;
 import br.dev.diego.medic.api.entities.records.requests.MedicoRequestRecord;
+import br.dev.diego.medic.api.entities.records.requests.MedicoUpdateRequestRecord;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -47,5 +48,15 @@ public class Medico {
         this.telefone = request.telefone();
         this.especialidade = request.especialidade();
         this.endereco = new Endereco(request.endereco());
+    }
+
+    public void atualizar(MedicoUpdateRequestRecord request) {
+        this.nome = request.nome() != null ?  request.nome() : this.nome;
+        this.telefone = request.telefone() != null ? request.telefone() : this.telefone;
+
+        if(request.endereco() != null) {
+            this.endereco.atualizar(request.endereco());
+        }
+
     }
 }
