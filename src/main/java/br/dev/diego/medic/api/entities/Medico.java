@@ -1,6 +1,7 @@
 package br.dev.diego.medic.api.entities;
 
 import br.dev.diego.medic.api.entities.enums.Especialidade;
+import br.dev.diego.medic.api.entities.records.requests.MedicoRequestRecord;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,10 +33,19 @@ public class Medico {
     private String nome;
     private String email;
     private String crm;
+    private String telefone;
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco endereco;
 
+    public Medico(MedicoRequestRecord request) {
+        this.nome = request.nome();
+        this.email = request.email();
+        this.crm = request.crm();
+        this.telefone = request.telefone();
+        this.especialidade = request.especialidade();
+        this.endereco = new Endereco(request.endereco());
+    }
 }

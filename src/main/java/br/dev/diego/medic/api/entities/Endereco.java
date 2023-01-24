@@ -1,5 +1,6 @@
 package br.dev.diego.medic.api.entities;
 
+import br.dev.diego.medic.api.entities.records.requests.EnderecoRecord;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,4 +35,13 @@ public class Endereco {
     @OneToOne(mappedBy = "endereco")
     private Medico medico;
 
+    public Endereco(EnderecoRecord endereco) {
+        this.logradouro = endereco.logradouro();
+        this.bairro = endereco.bairro();
+        this.cep = endereco.cep();
+        this.cidade = endereco.cidade();
+        this.uf = endereco.uf();
+        this.complemento = endereco.complemento();
+        this.numero = endereco.numero();
+    }
 }
