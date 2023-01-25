@@ -9,18 +9,19 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record MedicoRequestRecord(
-        @NotBlank(message = "O campo nome deve ser preenchido.")
+        @NotBlank(message = "{nome.obrigatorio}")
         String nome,
-        @Email(message = "O campo e-mail deve ser preenchido.")
+        @NotBlank(message = "{email.obrigatorio}")
+        @Email(message = "{email.invalido}")
         String email,
-        @NotBlank(message = "O campo crm deve ser preenchido.")
-        @Pattern(regexp = "\\d{4,6}", message = "Insira um crm válido.")
+        @NotBlank(message = "{crm.obrigatorio}")
+        @Pattern(regexp = "\\d{4,6}", message = "{crm.invalido}")
         String crm,
-        @NotBlank(message = "O campo telefone deve ser preenchido.")
+        @NotBlank(message = "{telefone.obrigatorio}")
         String telefone,
-        @NotNull
+        @NotNull(message = "{especialidade.obrigatorio}")
         Especialidade especialidade,
-        @NotNull
         @Valid
+        @NotNull(message = "{endereco.obrigatorio}")
         EnderecoRecord endereco) {
 }

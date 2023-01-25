@@ -35,7 +35,7 @@ public class MedicoServiceImpl implements MedicoService {
     @Override
     @Transactional(readOnly = true)
     public MedicoFullResponseRecord buscarPorId(Long id) {
-        return new MedicoFullResponseRecord(getEntityById(id));
+        return new MedicoFullResponseRecord(repository.getReferenceById(id));
     }
 
     @Override
@@ -49,7 +49,6 @@ public class MedicoServiceImpl implements MedicoService {
     @Override
     @Transactional
     public void excluir(Long id) {
-        getEntityById(id);
         repository.deleteById(id);
     }
 
