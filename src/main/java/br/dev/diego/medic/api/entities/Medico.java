@@ -40,6 +40,7 @@ public class Medico {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Endereco endereco;
+    private Boolean ativo;
 
     public Medico(MedicoRequestRecord request) {
         this.nome = request.nome();
@@ -48,6 +49,7 @@ public class Medico {
         this.telefone = request.telefone();
         this.especialidade = request.especialidade();
         this.endereco = new Endereco(request.endereco());
+        this.ativo = true;
     }
 
     public void atualizar(MedicoUpdateRequestRecord request) {
@@ -59,4 +61,9 @@ public class Medico {
         }
 
     }
+
+    public void desativaMedico() {
+        this.ativo = false;
+    }
+
 }

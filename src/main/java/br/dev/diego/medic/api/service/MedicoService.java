@@ -9,8 +9,10 @@ import org.springframework.data.domain.Pageable;
 
 public interface MedicoService {
 
-    Page<MedicoResponseRecord> buscarTodos(Pageable pageable);
+    Page<MedicoResponseRecord> buscarTodosAtivos(Pageable pageable);
     MedicoFullResponseRecord cadastrar(MedicoRequestRecord request);
     MedicoFullResponseRecord buscarPorId(Long id);
     MedicoFullResponseRecord atualizar(Long id, MedicoUpdateRequestRecord request);
+    void excluir(Long id);
+    void desativar(Long id);
 }

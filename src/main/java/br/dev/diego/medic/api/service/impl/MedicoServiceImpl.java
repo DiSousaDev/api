@@ -22,8 +22,8 @@ public class MedicoServiceImpl implements MedicoService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<MedicoResponseRecord> buscarTodos(Pageable pageable) {
-        return repository.findAll(pageable).map(MedicoResponseRecord::new);
+    public Page<MedicoResponseRecord> buscarTodosAtivos(Pageable pageable) {
+        return repository.findAllMedicoByAtivo(pageable, true).map(MedicoResponseRecord::new);
     }
 
     @Override
@@ -44,6 +44,21 @@ public class MedicoServiceImpl implements MedicoService {
         Medico entity = repository.getReferenceById(id);
         entity.atualizar(request);
         return new MedicoFullResponseRecord(entity);
+    }
+
+    @Override
+    @Transactional
+    public void excluir(Long id) {
+        getEntityById(id);
+        repository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void desativar(Long id) {
+        Medico entity = getEntityById(id);
+        entity.desativaMedico();
+        repository.save(entity);
     }
 
     private Medico getEntityById(Long id) {

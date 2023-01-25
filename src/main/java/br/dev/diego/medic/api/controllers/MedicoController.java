@@ -13,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,12 +34,12 @@ public class MedicoController {
     private MedicoService medicoService;
 
     @GetMapping
-    public ResponseEntity<Page<MedicoResponseRecord>> buscarTodos(@PageableDefault(
+    public ResponseEntity<Page<MedicoResponseRecord>> buscarMedicosAtivos(@PageableDefault(
             size = 6,
             sort = "nome",
             direction = Sort.Direction.DESC
     ) Pageable pageable) {
-        return ResponseEntity.ok(medicoService.buscarTodos(pageable));
+        return ResponseEntity.ok(medicoService.buscarTodosAtivos(pageable));
     }
 
     @GetMapping(value = "/{id}")
@@ -58,6 +59,18 @@ public class MedicoController {
     @PutMapping(value = "/{id}")
     public ResponseEntity<MedicoFullResponseRecord> atualizarMedico(@PathVariable Long id, @RequestBody @Valid MedicoUpdateRequestRecord request) {
         return ResponseEntity.ok(medicoService.atualizar(id, request));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> excluirMedico(@PathVariable Long id) {
+        medicoService.excluir(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping(value = "/desativar/{id}")
+    public ResponseEntity<Void> desativarMedico(@PathVariable Long id) {
+        medicoService.desativar(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
