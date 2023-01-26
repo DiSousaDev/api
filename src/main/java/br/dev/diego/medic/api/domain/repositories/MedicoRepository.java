@@ -1,6 +1,6 @@
 package br.dev.diego.medic.api.domain.repositories;
 
-import br.dev.diego.medic.api.domain.medico.Medico;
+import br.dev.diego.medic.api.domain.entities.Medico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

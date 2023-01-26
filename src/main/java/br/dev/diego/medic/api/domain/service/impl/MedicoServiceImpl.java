@@ -1,10 +1,10 @@
 package br.dev.diego.medic.api.domain.service.impl;
 
-import br.dev.diego.medic.api.domain.medico.Medico;
-import br.dev.diego.medic.api.domain.medico.MedicoRequestRecord;
-import br.dev.diego.medic.api.domain.medico.MedicoUpdateRequestRecord;
-import br.dev.diego.medic.api.domain.medico.MedicoFullResponseRecord;
-import br.dev.diego.medic.api.domain.medico.MedicoResponseRecord;
+import br.dev.diego.medic.api.domain.entities.Medico;
+import br.dev.diego.medic.api.domain.requests.MedicoRequestRecord;
+import br.dev.diego.medic.api.domain.requests.MedicoUpdateRequestRecord;
+import br.dev.diego.medic.api.domain.responses.MedicoFullResponseRecord;
+import br.dev.diego.medic.api.domain.responses.MedicoResponseRecord;
 import br.dev.diego.medic.api.domain.repositories.MedicoRepository;
 import br.dev.diego.medic.api.domain.service.MedicoService;
 import jakarta.persistence.EntityNotFoundException;

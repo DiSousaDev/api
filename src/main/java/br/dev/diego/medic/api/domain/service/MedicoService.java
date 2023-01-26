@@ -1,9 +1,9 @@
 package br.dev.diego.medic.api.domain.service;
 
-import br.dev.diego.medic.api.domain.medico.MedicoRequestRecord;
-import br.dev.diego.medic.api.domain.medico.MedicoUpdateRequestRecord;
-import br.dev.diego.medic.api.domain.medico.MedicoFullResponseRecord;
-import br.dev.diego.medic.api.domain.medico.MedicoResponseRecord;
+import br.dev.diego.medic.api.domain.requests.MedicoRequestRecord;
+import br.dev.diego.medic.api.domain.requests.MedicoUpdateRequestRecord;
+import br.dev.diego.medic.api.domain.responses.MedicoFullResponseRecord;
+import br.dev.diego.medic.api.domain.responses.MedicoResponseRecord;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

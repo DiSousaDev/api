@@ -1,5 +1,6 @@
-package br.dev.diego.medic.api.domain.medico;
+package br.dev.diego.medic.api.domain.responses;
 
+import br.dev.diego.medic.api.domain.entities.Medico;
 import br.dev.diego.medic.api.domain.enums.Especialidade;
 
 public record MedicoResponseRecord(String nome, String email, String crm, Especialidade especialidade) {
