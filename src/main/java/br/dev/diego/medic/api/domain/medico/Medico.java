@@ -1,8 +1,7 @@
-package br.dev.diego.medic.api.entities;
+package br.dev.diego.medic.api.domain.medico;
 
-import br.dev.diego.medic.api.entities.enums.Especialidade;
-import br.dev.diego.medic.api.entities.records.requests.MedicoRequestRecord;
-import br.dev.diego.medic.api.entities.records.requests.MedicoUpdateRequestRecord;
+import br.dev.diego.medic.api.domain.endereco.Endereco;
+import br.dev.diego.medic.api.domain.enums.Especialidade;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

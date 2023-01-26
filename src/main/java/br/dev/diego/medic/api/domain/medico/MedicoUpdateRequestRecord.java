@@ -1,6 +1,6 @@
-package br.dev.diego.medic.api.entities.records.requests;
+package br.dev.diego.medic.api.domain.medico;
 
-import br.dev.diego.medic.api.entities.records.EnderecoRecord;
+import br.dev.diego.medic.api.domain.endereco.EnderecoRecord;
 
 public record MedicoUpdateRequestRecord(
         String nome,

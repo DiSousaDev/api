@@ -1,4 +1,4 @@
-package br.dev.diego.medic.api.entities.enums;
+package br.dev.diego.medic.api.domain.enums;
 
 public enum Especialidade {
 

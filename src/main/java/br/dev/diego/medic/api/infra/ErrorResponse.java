@@ -1,4 +1,4 @@
-package br.dev.diego.medic.api.controllers.exceptions;
+package br.dev.diego.medic.api.infra;
 
 import org.springframework.validation.FieldError;
 

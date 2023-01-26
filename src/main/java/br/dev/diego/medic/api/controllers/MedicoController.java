@@ -1,10 +1,10 @@
 package br.dev.diego.medic.api.controllers;
 
-import br.dev.diego.medic.api.entities.records.requests.MedicoRequestRecord;
-import br.dev.diego.medic.api.entities.records.requests.MedicoUpdateRequestRecord;
-import br.dev.diego.medic.api.entities.records.responses.MedicoFullResponseRecord;
-import br.dev.diego.medic.api.entities.records.responses.MedicoResponseRecord;
-import br.dev.diego.medic.api.service.MedicoService;
+import br.dev.diego.medic.api.domain.medico.MedicoRequestRecord;
+import br.dev.diego.medic.api.domain.medico.MedicoUpdateRequestRecord;
+import br.dev.diego.medic.api.domain.medico.MedicoFullResponseRecord;
+import br.dev.diego.medic.api.domain.medico.MedicoResponseRecord;
+import br.dev.diego.medic.api.domain.service.MedicoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

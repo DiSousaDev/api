@@ -1,12 +1,12 @@
-package br.dev.diego.medic.api.service.impl;
+package br.dev.diego.medic.api.domain.service.impl;
 
-import br.dev.diego.medic.api.entities.Medico;
-import br.dev.diego.medic.api.entities.records.requests.MedicoRequestRecord;
-import br.dev.diego.medic.api.entities.records.requests.MedicoUpdateRequestRecord;
-import br.dev.diego.medic.api.entities.records.responses.MedicoFullResponseRecord;
-import br.dev.diego.medic.api.entities.records.responses.MedicoResponseRecord;
-import br.dev.diego.medic.api.repositories.MedicoRepository;
-import br.dev.diego.medic.api.service.MedicoService;
+import br.dev.diego.medic.api.domain.medico.Medico;
+import br.dev.diego.medic.api.domain.medico.MedicoRequestRecord;
+import br.dev.diego.medic.api.domain.medico.MedicoUpdateRequestRecord;
+import br.dev.diego.medic.api.domain.medico.MedicoFullResponseRecord;
+import br.dev.diego.medic.api.domain.medico.MedicoResponseRecord;
+import br.dev.diego.medic.api.domain.repositories.MedicoRepository;
+import br.dev.diego.medic.api.domain.service.MedicoService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;

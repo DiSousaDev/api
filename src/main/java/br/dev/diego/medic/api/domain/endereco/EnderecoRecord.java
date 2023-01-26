@@ -1,6 +1,5 @@
-package br.dev.diego.medic.api.entities.records;
+package br.dev.diego.medic.api.domain.endereco;
 
-import br.dev.diego.medic.api.entities.Endereco;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 

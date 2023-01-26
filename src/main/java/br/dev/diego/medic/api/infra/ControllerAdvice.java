@@ -1,4 +1,4 @@
-package br.dev.diego.medic.api.controllers.exceptions;
+package br.dev.diego.medic.api.infra;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
