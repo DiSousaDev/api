@@ -31,6 +31,13 @@ public class ControllerAdvice {
         return ResponseEntity.status(status.value()).body(problemDetail);
     }
 
+    @ExceptionHandler(TokenVerifyException.class)
+    public ResponseEntity<ProblemDetail> handleVerificarTokenException(TokenVerifyException ex) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(status, ex.getMessage());
+        return ResponseEntity.status(status.value()).body(problemDetail);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Stream<ErrorResponse>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
         List<FieldError> errors = ex.getFieldErrors();

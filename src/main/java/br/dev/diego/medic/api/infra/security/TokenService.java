@@ -2,10 +2,12 @@ package br.dev.diego.medic.api.infra.security;
 
 import br.dev.diego.medic.api.domain.entities.Usuario;
 import br.dev.diego.medic.api.domain.responses.TokenJWTResponse;
-import br.dev.diego.medic.api.infra.exceptions.GerarTokenException;
+import br.dev.diego.medic.api.infra.exceptions.TokenGenerationException;
+import br.dev.diego.medic.api.infra.exceptions.TokenVerifyException;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +31,20 @@ public class TokenService {
                     .withExpiresAt(getDataExpiracao())
                     .sign(algorithm);
         } catch (JWTCreationException e) {
-            throw new GerarTokenException("Erro ao gerar token JWT, " + e.getMessage());
+            throw new TokenGenerationException("Erro ao gerar token JWT, " + e.getMessage());
+        }
+    }
+
+    public String getSubject(String tokenJWT) {
+        try {
+            Algorithm algorithm = Algorithm.HMAC256(secret);
+            return JWT.require(algorithm)
+                    .withIssuer("API Medic")
+                    .build()
+                    .verify(tokenJWT)
+                    .getSubject();
+        } catch (JWTVerificationException e) {
+            throw new TokenVerifyException("Token JTW inválido ou expirado, " + e.getMessage());
         }
     }
 
