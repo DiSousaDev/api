@@ -34,6 +34,8 @@ public class Endereco {
     private String numero;
     @OneToOne(mappedBy = "endereco")
     private Medico medico;
+    @OneToOne(mappedBy = "endereco")
+    private Paciente paciente;
 
     public Endereco(EnderecoRecord endereco) {
         this.logradouro = endereco.logradouro();
