@@ -7,7 +7,7 @@ import br.dev.diego.medic.api.domain.requests.PacienteUpdateRequestRecord;
 import br.dev.diego.medic.api.domain.responses.PacienteFullResponseRecord;
 import br.dev.diego.medic.api.domain.responses.PacienteResponseRecord;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,7 +28,7 @@ import java.net.URI;
 
 @Slf4j
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RequestMapping("pacientes")
 public class PacienteController {
 
@@ -41,7 +41,7 @@ public class PacienteController {
         var response = new PacienteFullResponseRecord(repository.save(paciente));
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(response.id()).toUri();
-        log.info("Medico cadastrado com sucesso.");
+        log.info("Paciente cadastrado com sucesso.");
         return ResponseEntity.created(uri).body(response);
     }
 
@@ -69,6 +69,7 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
+    @Transactional(readOnly = true)
     public ResponseEntity<PacienteFullResponseRecord> detalhar(@PathVariable Long id) {
         var paciente = repository.getReferenceById(id);
         return ResponseEntity.ok(new PacienteFullResponseRecord(paciente));

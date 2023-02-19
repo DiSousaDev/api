@@ -3,7 +3,7 @@ package br.dev.diego.medic.api.domain.enums;
 public enum Especialidade {
 
     ORTOPEDIA("ortopedia"),
-    CARDIOLODIA("cardiolodia"),
+    CARDIOLOGIA("cardiologia"),
     GINECOLOGIA("ginecologia"),
     DERMATOLOGIA("dermatologia");
 

@@ -1,5 +1,6 @@
 package br.dev.diego.medic.api.infra.exceptions;
 
+import br.dev.diego.medic.api.domain.service.exceptions.ValidationException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,13 @@ public class ControllerAdvice {
 
     @ExceptionHandler(TokenVerifyException.class)
     public ResponseEntity<ProblemDetail> handleVerificarTokenException(TokenVerifyException ex) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(status, ex.getMessage());
+        return ResponseEntity.status(status.value()).body(problemDetail);
+    }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<ProblemDetail> handleValidationException(ValidationException ex) {
         HttpStatus status = HttpStatus.BAD_REQUEST;
         ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(status, ex.getMessage());
         return ResponseEntity.status(status.value()).body(problemDetail);

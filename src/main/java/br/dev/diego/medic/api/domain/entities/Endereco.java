@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -32,10 +31,6 @@ public class Endereco {
     private String uf;
     private String complemento;
     private String numero;
-    @OneToOne(mappedBy = "endereco")
-    private Medico medico;
-    @OneToOne(mappedBy = "endereco")
-    private Paciente paciente;
 
     public Endereco(EnderecoRecord endereco) {
         this.logradouro = endereco.logradouro();

@@ -7,16 +7,16 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record PacienteRequestRecord(
-        @NotBlank
+        @NotBlank(message = "{nome.obrigatorio}")
         String nome,
-        @NotBlank
-        @Email
+        @NotBlank(message = "{email.obrigatorio}")
+        @Email(message = "{email.invalido}")
         String email,
 
-        @NotBlank
+        @NotBlank(message = "{telefone.obrigatorio}")
         String telefone,
-        @NotBlank
-        @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}\\d{2}")
+        @NotBlank(message = "{cpf.obrigatorio}")
+        @Pattern(regexp = "([0-9]{2}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[\\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\\.]?[0-9]{3}[\\.]?[0-9]{3}[-]?[0-9]{2})", message = "{cpf.invalido}")
         String cpf,
 
         @NotNull @Valid EnderecoRecord endereco) {

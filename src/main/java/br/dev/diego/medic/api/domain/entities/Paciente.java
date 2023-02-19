@@ -8,12 +8,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "tb_paciente")
 @Entity
@@ -37,6 +41,12 @@ public class Paciente {
     private Endereco endereco;
 
     private Boolean ativo;
+    @OneToMany(mappedBy = "paciente")
+    private final List<Agendamento> consultas = new ArrayList<>();
+
+    public Paciente(Long id) {
+        this.id = id;
+    }
 
     public Paciente(PacienteRequestRecord dados) {
         this.ativo = true;
