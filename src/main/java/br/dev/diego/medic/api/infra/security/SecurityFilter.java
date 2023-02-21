@@ -29,7 +29,12 @@ public class SecurityFilter extends OncePerRequestFilter {
         String tokenHeader = request.getHeader("Authorization");
         String requestURI = request.getRequestURI();
 
-        if (tokenHeader == null && requestURI.equals("/login") || requestURI.equals("/h2-console")) {
+        if (tokenHeader == null &&
+                requestURI.equals("/login") ||
+                requestURI.contains("/h2-console") ||
+                requestURI.contains("/v3/api-docs") ||
+                requestURI.contains("/swagger-ui")
+        ) {
             filterChain.doFilter(request, response);
             return;
         }

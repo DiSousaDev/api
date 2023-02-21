@@ -6,6 +6,7 @@ import br.dev.diego.medic.api.domain.requests.PacienteRequestRecord;
 import br.dev.diego.medic.api.domain.requests.PacienteUpdateRequestRecord;
 import br.dev.diego.medic.api.domain.responses.PacienteFullResponseRecord;
 import br.dev.diego.medic.api.domain.responses.PacienteResponseRecord;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +31,7 @@ import java.net.URI;
 @RestController
 @AllArgsConstructor
 @RequestMapping("pacientes")
+@SecurityRequirement(name = "bearer-key")
 public class PacienteController {
 
     private PacienteRepository repository;

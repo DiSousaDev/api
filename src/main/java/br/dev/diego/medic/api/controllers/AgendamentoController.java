@@ -3,6 +3,7 @@ package br.dev.diego.medic.api.controllers;
 import br.dev.diego.medic.api.domain.requests.AgendamentoRequestRecord;
 import br.dev.diego.medic.api.domain.responses.AgendamentoFullResponseRecord;
 import br.dev.diego.medic.api.domain.service.AgendamentoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,7 @@ import java.net.URI;
 @RestController
 @AllArgsConstructor
 @RequestMapping("consultas")
+@SecurityRequirement(name = "bearer-key")
 public class AgendamentoController {
 
     private AgendamentoService service;

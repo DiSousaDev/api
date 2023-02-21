@@ -5,6 +5,7 @@ import br.dev.diego.medic.api.domain.requests.MedicoUpdateRequestRecord;
 import br.dev.diego.medic.api.domain.responses.MedicoFullResponseRecord;
 import br.dev.diego.medic.api.domain.responses.MedicoResponseRecord;
 import br.dev.diego.medic.api.domain.service.MedicoService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +30,7 @@ import java.net.URI;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/medicos")
+@SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
     private MedicoService medicoService;
